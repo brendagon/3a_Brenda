@@ -13,6 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 /**
  *
@@ -27,7 +31,15 @@ public class FXMLDocumentController implements Initializable {
  
  
     @FXML
-    private Button btnSoma;
+    private Label label;
+    @FXML
+    private Label lblnum2;
+    @FXML
+    private Label lblResult;
+    @FXML
+    private Label lblnum;
+    @FXML
+    private Button btnsoma;
     
     @FXML
     private void Soma(ActionEvent event){
@@ -41,5 +53,25 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void abrirCadastro(ActionEvent event) {
+        try{
+    FXMLLoader fxmlLoader = new FXMLLoader();
+    fxmlLoader.setLocation(getClass().getResource("Aluno.fxml"));
+    Scene scene = new Scene(fxmlLoader.load(),900,682);
+    Stage stage = new Stage();
+    stage.setTitle("Cadastrar Cliente");
+    stage.setScene(scene);
+    stage.show();
+}
+catch(IOException e){
+
+}
+    }
+
+    @FXML
+    private void fecharProjeto(ActionEvent event) {
+    }
     
 }

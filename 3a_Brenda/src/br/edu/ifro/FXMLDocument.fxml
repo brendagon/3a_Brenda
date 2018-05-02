@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -17,5 +18,18 @@
       <Label fx:id="lblResult" layoutX="29.0" layoutY="139.0" text="Resultado" />
       <Label fx:id="lblnum" layoutX="28.0" layoutY="33.0" text="Número 1" />
       <Button fx:id="btnsoma" layoutX="215.0" layoutY="58.0" mnemonicParsing="false" onAction="#Soma" text="Soma" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="320.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#abrirCadastro" text="Alunos" />
+                  <MenuItem mnemonicParsing="false" onAction="#fecharProjeto" text="Fechar" />
+            </items>
+          </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
     </children>
 </AnchorPane>
