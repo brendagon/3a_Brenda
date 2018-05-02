@@ -5,12 +5,15 @@
  */
 package br.edu.ifro;
 
+import br.edu.ifro.modelo.Aluno;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,7 +27,8 @@ public class AlunoController implements Initializable {
 
     @FXML
     private TextField txtNome;
-
+    
+private Button btnFechar, btnSalvar;
     /**
      * Initializes the controller class.
      */
@@ -33,19 +37,29 @@ public class AlunoController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void fechar(ActionEvent event) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Aula");
-        EntityManager em = emf.createEntityManager();      
-                
-                
-                
     
-                
+    @FXML
+
+
+    public void fechar(ActionEvent event) {
+           Stage stage = (Stage) txtNome.getScene().getWindow();
+    stage.close(); 
     }
 
     @FXML
-    private void salvar(ActionEvent event) {
+    public void salvar(ActionEvent event) {
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("aula");
+        EntityManager em = emf.createEntityManager();      
+                
+                
+          Aluno aluno1 = new Aluno();      
+    
+         aluno1.setNome(txtNome.getText());
+         
+         em.getTransaction().begin();
+         em.persist(aluno1);
+         
+          em.getTransaction().commit();
     }
     
 }
